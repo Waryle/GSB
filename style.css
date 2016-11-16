@@ -1,0 +1,45 @@
+/* Titre */
+#haut {
+margin: 2 2 2 2 ;
+height: 6% ;
+}
+
+/* Menus */
+#gauche {
+	float: left ;
+	width: 18% ;
+	background-color: white ;
+	height: 100% ;
+}
+
+/* ??? */
+#droite {
+	float: left ;
+	width: 80% ;
+}
+
+#bas {
+	margin: 10 2 2 2 ;
+	clear: left ; 
+	background-color: 77AADD ;
+	color: white ;
+	height: 88% ;
+}
+footer{
+
+background-color:#C0C0C0;
+font-size:12px;
+color : white ;
+text-align: center;
+position:fixed;
+bottom:0;
+right:0;
+width:100%;
+padding-top:20px;
+height:20px;
+
+}
+.message{
+
+color : red ;
+}
