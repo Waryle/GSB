@@ -1,25 +1,39 @@
 <?php
-require_once("include/fct.inc.php");
-require_once ("include/class.pdogsb.inc.php");
-include("vues/v_entete.php") ;
 session_start();
-$pdo = PdoGsb::getPdoGsb();
-$estConnecte = estConnecte();
-if(!isset($_REQUEST['uc']) || !$estConnecte){
-     $_REQUEST['uc'] = 'connexion';
-}	 
-$uc = $_REQUEST['uc'];
-switch($uc){
-	case 'connexion':{
-		include("controleurs/c_connexion.php");break;
-	}
-	case 'gererFrais' :{
-		include("controleurs/c_gererFrais.php");break;
-	}
-	case 'etatFrais' :{
-		include("controleurs/c_etatFrais.php");break; 
-	}
-}
-include("vues/v_pied.php") ;
-?>
+require_once("Model/classConnexion.php");
+include("vue/v_entete.php");
 
+
+if (!isset($_REQUEST['uc'])) {
+    $uc = 'seConnecter';
+} else {
+    $uc = $_REQUEST['uc'];
+}
+
+$pdo = connexionPDO::getconnexionPDO();
+switch ($uc) {
+    case 'seConnecter': {
+        include("vue/v_connexion.php");
+        break;
+    }
+    case 'Connexion': {
+        include("Controleur/c_connexion.php");
+        break;
+    }
+    
+    case 'Menu': {
+        include("Controleur/c_visiteur.php");
+        
+        break;
+    }
+        //    case 'Delegue':
+        //    {
+        //                include("Controleur/menuCR.html");
+        //break;
+        //    }
+        
+        
+}
+include("vue/v_pied.php");
+
+?>
