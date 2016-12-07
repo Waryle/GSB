@@ -6,7 +6,7 @@ if(!isset($_REQUEST['action']) || $_REQUEST['action'] == "") {
 	$action = $_REQUEST['action'];
 }
 
-include("vue/menuCR.html");
+include("vue/menuCR.php");
 switch($action)
 {
 case 'accueil':

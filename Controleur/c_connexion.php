@@ -10,7 +10,6 @@ switch($action)
 		$id = $_REQUEST['ID'];
 		$pass = $_REQUEST['pass'];
 		$result= $pdo->Findcollaborateur($id,$pass);
-  	
   		if ($result){
   			$_SESSION['id']=$id;
 	//TEST DE TYPE DUTILISATEUR

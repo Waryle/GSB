@@ -39,5 +39,4 @@ break;
 
 	}
 include("vue/v_pied.php");
-
 ?>
