@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>formulaire PRATICIEN</title>
+	<link rel="stylesheet" href="../style.css" />
+    <style type="text/css">
+        <!-- body {
+            background-color: white;
+            color: 5599EE;
+        }
+        label.titre {
+            width: 180;
+            clear: left;
+            float: left;
+        }
+        .zone {
+            width: 300;
+            float: left;
+            color: white
+        }
+        -->
+    </style>
+   
+</head>
+
+<body>
+    <div id="haut">
+        <h1><img src="logo.jpg" width="100" height="60"/>Gestion des visites</h1>
+    </div>
+    <div id="gauche">
+        <h2>Outils</h2>
+        <ul>
+            <li>Comptes-Rendus</li>
+            <ul>
+                <li><a href="formRAPPORT_VISITE.htm">Nouveaux</a>
+                </li>
+                <li>Consulter</li>
+            </ul>
+            <li>Consulter</li>
+            <ul>
+                <li><a href="formMEDICAMENT.htm">Médicaments</a>
+                </li>
+                <li><a href="formPRATICIEN.htm">Praticiens</a>
+                </li>
+                <li><a href="formVISITEUR.htm">Autres visiteurs</a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+    <div id="droite">
+        <div id="bas">
+            <h1> Praticiens </h1>
+            <form name="formListeRecherche">
+                <select name="lstPrat" class="titre" onClick="chercher(this.value);">
+                    <option>Choisissez un praticien</option>
+                    <option value="1">Notini</option>
+                    <option value="2">Gosselin</option>
+                    <option value="3">Delahaye</option>
+                </select>
+            </form>
+            <form id="formPraticien">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

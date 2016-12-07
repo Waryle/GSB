@@ -1,189 +1,194 @@
-﻿
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
--- Base de données :   gsb 
+-- Client :  127.0.0.1
+-- Généré le :  Mer 07 Décembre 2016 à 00:49
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données :  `gsb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'activite_compl'
+-- Structure de la table `activite_compl`
 --
 
-CREATE TABLE IF NOT EXISTS  'activite_compl' (
-  'AC_NUM' int(11) NOT NULL AUTO_INCREMENT,
-  'AC_DATE' datetime DEFAULT NULL,
- ' AC_LIEU' varchar(25) DEFAULT NULL,
- ' AC_THEME' varchar(10) DEFAULT NULL,
-  'AC_MOTIF' varchar(50) DEFAULT NULL,
-  PRIMARY KEY ('AC_NUM')
-)  ;
+CREATE TABLE IF NOT EXISTS `activite_compl` (
+  `AC_NUM` int(11) NOT NULL AUTO_INCREMENT,
+  `AC_DATE` datetime DEFAULT NULL,
+  `AC_LIEU` varchar(25) DEFAULT NULL,
+  `AC_THEME` varchar(10) DEFAULT NULL,
+  `AC_MOTIF` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`AC_NUM`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'collaborateur'
+-- Structure de la table `collaborateur`
 --
 
-CREATE TABLE IF NOT EXISTS collaborateur (
-  VIS_MATRICULE  varchar(10) NOT NULL,
-   VIS_NOM  varchar(25) DEFAULT NULL,
-   Vis_PRENOM  varchar(50) DEFAULT NULL,
-   VIS_ADRESSE  varchar(50) DEFAULT NULL,
-   VIS_CP  varchar(5) DEFAULT NULL,
-   VIS_VILLE  varchar(30) DEFAULT NULL,
-   VIS_DATEEMBAUCHE  datetime DEFAULT NULL,
-   SEC_CODE  varchar(1) DEFAULT NULL,
-   LAB_CODE  varchar(2) NOT NULL,
-   MDP  varchar(50) NOT NULL,
-  PRIMARY KEY ( VIS_MATRICULE ),
-  KEY  LAB_CODE  ( LAB_CODE ),
-  KEY  SEC_CODE  ( SEC_CODE )
-) ;
+CREATE TABLE IF NOT EXISTS `collaborateur` (
+  `VIS_MATRICULE` varchar(10) NOT NULL,
+  `VIS_NOM` varchar(25) DEFAULT NULL,
+  `Vis_PRENOM` varchar(50) DEFAULT NULL,
+  `VIS_ADRESSE` varchar(50) DEFAULT NULL,
+  `VIS_CP` varchar(5) DEFAULT NULL,
+  `VIS_VILLE` varchar(30) DEFAULT NULL,
+  `VIS_DATEEMBAUCHE` datetime DEFAULT NULL,
+  `SEC_CODE` varchar(1) DEFAULT NULL,
+  `LAB_CODE` varchar(2) NOT NULL,
+  `MDP` varchar(50) NOT NULL,
+  `CODE_REG` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`VIS_MATRICULE`),
+  KEY `LAB_CODE` (`LAB_CODE`),
+  KEY `SEC_CODE` (`SEC_CODE`),
+  KEY `REG_CODE` (`CODE_REG`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'collaborateur'
+-- Contenu de la table `collaborateur`
 --
 
-INSERT INTO  collaborateur  ('VIS_MATRICULE', 'VIS_NOM', 'Vis_PRENOM', 'VIS_ADRESSE', 'VIS_CP', 'VIS_VILLE', 'VIS_DATEEMBAUCHE', 'SEC_CODE', 'LAB_CODE', 'MDP') VALUES
-('a131', 'Villechalane', 'Louis', '8 cours Lafontaine', '29000', 'BREST', '1992-12-11 00:00:00', NULL, 'SW', ''),
-('a17', 'Andre', 'David', '1 r Aimon de Chissée', '38100', 'GRENOBLE', '1991-08-26 00:00:00', NULL, 'GY', ''),
-('a55', 'Bedos', 'Christian', '1 r Bénédictins', '65000', 'TARBES', '1987-07-17 00:00:00', NULL, 'GY', ''),
-('a93', 'Tusseau', 'Louis', '22 r Renou', '86000', 'POITIERS', '1999-01-02 00:00:00', NULL, 'SW', ''),
-('b13', 'Bentot', 'Pascal', '11 av 6 Juin', '67000', 'STRASBOURG', '1996-03-11 00:00:00', NULL, 'GY', ''),
-('b16', 'Bioret', 'Luc', '1 r Linne', '35000', 'RENNES', '1997-03-21 00:00:00', NULL, 'SW', ''),
-('b19', 'Bunisset', 'Francis', '10 r Nicolas Chorier', '85000', 'LA ROCHE SUR YON', '1999-01-31 00:00:00', NULL, 'GY', ''),
-('b25', 'Bunisset', 'Denise', '1 r Lionne', '49100', 'ANGERS', '1994-07-03 00:00:00', NULL, 'SW', ''),
-('b28', 'Cacheux', 'Bernard', '114 r Authie', '34000', 'MONTPELLIER', '2000-08-02 00:00:00', NULL, 'GY', ''),
-('b34', 'Cadic', 'Eric', '123 r Caponière', '41000', 'BLOIS', '1993-12-06 00:00:00', 'P', 'SW', ''),
-('b4', 'Charoze', 'Catherine', '100 pl Géants', '33000', 'BORDEAUX', '1997-09-25 00:00:00', NULL, 'SW', ''),
-('b50', 'Clepkens', 'Christophe', '12 r Fédérico Garcia Lorca', '13000', 'MARSEILLE', '1998-01-18 00:00:00', NULL, 'SW', ''),
-('b59', 'Cottin', 'Vincenne', '36 sq Capucins', '5000', 'GAP', '1995-10-21 00:00:00', NULL, 'GY', ''),
-('c14', 'Daburon', 'François', '13 r Champs Elysées', '6000', 'NICE', '1989-02-01 00:00:00', 'S', 'SW', ''),
-('c3', 'De', 'Philippe', '13 r Charles Peguy', '10000', 'TROYES', '1992-05-05 00:00:00', NULL, 'SW', ''),
-('c54', 'Debelle', 'Michel', '181 r Caponière', '88000', 'EPINAL', '1991-04-09 00:00:00', NULL, 'SW', ''),
-('d13', 'Debelle', 'Jeanne', '134 r Stalingrad', '44000', 'NANTES', '1991-12-05 00:00:00', NULL, 'SW', ''),
-('d51', 'Debroise', 'Michel', '2 av 6 Juin', '70000', 'VESOUL', '1997-11-18 00:00:00', 'E', 'GY', ''),
-('e22', 'Desmarquest', 'Nathalie', '14 r Fédérico Garcia Lorca', '54000', 'NANCY', '1989-03-24 00:00:00', NULL, 'GY', ''),
-('e24', 'Desnost', 'Pierre', '16 r Barral de Montferrat', '55000', 'VERDUN', '1993-05-17 00:00:00', 'E', 'SW', ''),
-('e39', 'Dudouit', 'Frédéric', '18 quai Xavier Jouvin', '75000', 'PARIS', '1988-04-26 00:00:00', NULL, 'GY', ''),
-('e49', 'Duncombe', 'Claude', '19 av Alsace Lorraine', '9000', 'FOIX', '1996-02-19 00:00:00', NULL, 'GY', ''),
-('e5', 'Enault-Pascreau', 'Céline', '25B r Stalingrad', '40000', 'MONT DE MARSAN', '1990-11-27 00:00:00', 'S', 'GY', ''),
-('e52', 'Eynde', 'Valérie', '3 r Henri Moissan', '76000', 'ROUEN', '1991-10-31 00:00:00', NULL, 'GY', ''),
-('f21', 'Finck', 'Jacques', 'rte Montreuil Bellay', '74000', 'ANNECY', '1993-06-08 00:00:00', NULL, 'SW', ''),
-('f39', 'Frémont', 'Fernande', '4 r Jean Giono', '69000', 'LYON', '1997-02-15 00:00:00', NULL, 'GY', ''),
-('f4', 'Gest', 'Alain', '30 r Authie', '46000', 'FIGEAC', '1994-05-03 00:00:00', NULL, 'GY', ''),
-('g19', 'Gheysen', 'Galassus', '32 bd Mar Foch', '75000', 'PARIS', '1996-01-18 00:00:00', NULL, 'SW', ''),
-('g30', 'Girard', 'Yvon', '31 av 6 Juin', '80000', 'AMIENS', '1999-03-27 00:00:00', 'N', 'GY', ''),
-('g53', 'Gombert', 'Luc', '32 r Emile Gueymard', '56000', 'VANNES', '1985-10-02 00:00:00', NULL, 'GY', ''),
-('g7', 'Guindon', 'Caroline', '40 r Mar Montgomery', '87000', 'LIMOGES', '1996-01-13 00:00:00', NULL, 'GY', ''),
-('h13', 'Guindon', 'François', '44 r Picotière', '19000', 'TULLE', '1993-05-08 00:00:00', NULL, 'SW', ''),
-('h30', 'Igigabel', 'Guy', '33 gal Arlequin', '94000', 'CRETEIL', '1998-04-26 00:00:00', NULL, 'SW', ''),
-('h35', 'Jourdren', 'Pierre', '34 av Jean Perrot', '15000', 'AURRILLAC', '1993-08-26 00:00:00', NULL, 'GY', ''),
-('h40', 'Juttard', 'Pierre-Raoul', '34 cours Jean Jaurès', '8000', 'SEDAN', '1992-11-01 00:00:00', NULL, 'GY', ''),
-('j45', 'Labouré-Morel', 'Saout', '38 cours Berriat', '52000', 'CHAUMONT', '1998-02-25 00:00:00', 'N', 'SW', ''),
-('j50', 'Landré', 'Philippe', '4 av Gén Laperrine', '59000', 'LILLE', '1992-12-16 00:00:00', NULL, 'GY', ''),
-('j8', 'Langeard', 'Hugues', '39 av Jean Perrot', '93000', 'BAGNOLET', '1998-06-18 00:00:00', 'P', 'GY', ''),
-('k4', 'Lanne', 'Bernard', '4 r Bayeux', '30000', 'NIMES', '1996-11-21 00:00:00', NULL, 'SW', ''),
-('k53', 'Le', 'Noël', '4 av Beauvert', '68000', 'MULHOUSE', '1983-03-23 00:00:00', NULL, 'SW', ''),
-('l14', 'Le', 'Jean', '39 r Raspail', '53000', 'LAVAL', '1995-02-02 00:00:00', NULL, 'SW', ''),
-('l23', 'Leclercq', 'Servane', '11 r Quinconce', '18000', 'BOURGES', '1995-06-05 00:00:00', NULL, 'SW', ''),
-('l46', 'Lecornu', 'Jean-Bernard', '4 bd Mar Foch', '72000', 'LA FERTE BERNARD', '1997-01-24 00:00:00', NULL, 'GY', ''),
-('l56', 'Lecornu', 'Ludovic', '4 r Abel Servien', '25000', 'BESANCON', '1996-02-27 00:00:00', NULL, 'SW', ''),
-('m35', 'Lejard', 'Agnès', '4 r Anthoard', '82000', 'MONTAUBAN', '1987-10-06 00:00:00', NULL, 'SW', ''),
-('m45', 'Lesaulnier', 'Pascal', '47 r Thiers', '57000', 'METZ', '1990-10-13 00:00:00', NULL, 'SW', ''),
-('n42', 'Letessier', 'Stéphane', '5 chem Capuche', '27000', 'EVREUX', '1996-03-06 00:00:00', NULL, 'GY', ''),
-('n58', 'Loirat', 'Didier', 'Les Pêchers cité Bourg la Croix', '45000', 'ORLEANS', '1992-08-30 00:00:00', NULL, 'GY', ''),
-('n59', 'Maffezzoli', 'Thibaud', '5 r Chateaubriand', '2000', 'LAON', '1994-12-19 00:00:00', NULL, 'SW', ''),
-('o26', 'Mancini', 'Anne', '5 r D''Agier', '48000', 'MENDE', '1995-01-05 00:00:00', NULL, 'GY', ''),
-('p32', 'Marcouiller', 'Gérard', '7 pl St Gilles', '91000', 'ISSY LES MOULINEAUX', '1992-12-24 00:00:00', NULL, 'GY', ''),
-('p40', 'Michel', 'Jean-Claude', '5 r Gabriel Péri', '61000', 'FLERS', '1992-12-14 00:00:00', 'O', 'SW', ''),
-('p41', 'Montecot', 'Françoise', '6 r Paul Valéry', '17000', 'SAINTES', '1998-07-27 00:00:00', NULL, 'GY', ''),
-('p42', 'Notini', 'Veronique', '5 r Lieut Chabal', '60000', 'BEAUVAIS', '1994-12-12 00:00:00', NULL, 'SW', ''),
-('p49', 'Onfroy', 'Den', '5 r Sidonie Jacolin', '37000', 'TOURS', '1977-10-03 00:00:00', NULL, 'GY', ''),
-('p6', 'Pascreau', 'Charles', '57 bd Mar Foch', '64000', 'PAU', '1997-03-30 00:00:00', NULL, 'SW', ''),
-('p7', 'Pernot', 'Claude-Noël', '6 r Alexandre 1 de Yougoslavie', '11000', 'NARBONNE', '1990-03-01 00:00:00', NULL, 'SW', ''),
-('p8', 'Perrier', 'Maître', '6 r Aubert Dubayet', '71000', 'CHALON SUR SAONE', '1991-06-23 00:00:00', NULL, 'GY', ''),
-('q17', 'Petit', 'Jean-Louis', '7 r Ernest Renan', '50000', 'SAINT LO', '1997-09-06 00:00:00', NULL, 'GY', ''),
-('r24', 'Piquery', 'Patrick', '9 r Vaucelles', '14000', 'CAEN', '1984-07-29 00:00:00', 'O', 'GY', ''),
-('r58', 'Quiquandon', 'Joël', '7 r Ernest Renan', '29000', 'QUIMPER', '1990-06-30 00:00:00', NULL, 'GY', ''),
-('s10', 'Retailleau', 'Josselin', '88Bis r Saumuroise', '39000', 'DOLE', '1995-11-14 00:00:00', NULL, 'SW', ''),
-('s21', 'Retailleau', 'Pascal', '32 bd Ayrault', '23000', 'MONTLUCON', '1992-09-25 00:00:00', NULL, 'SW', ''),
-('t43', 'Souron', 'Maryse', '7B r Gay Lussac', '21000', 'DIJON', '1995-03-09 00:00:00', NULL, 'SW', ''),
-('t47', 'Tiphagne', 'Patrick', '7B r Gay Lussac', '62000', 'ARRAS', '1997-08-29 00:00:00', NULL, 'SW', ''),
-('t55', 'Tréhet', 'Alain', '7D chem Barral', '12000', 'RODEZ', '1994-11-29 00:00:00', NULL, 'SW', ''),
-('t60', 'Tusseau', 'Josselin', '63 r Bon Repos', '28000', 'CHARTRES', '1991-03-29 00:00:00', NULL, 'GY', ''),
-('zzz', 'swiss', 'bourdin', NULL, NULL, NULL, '2003-06-18 00:00:00', NULL, 'BC', '');
+INSERT INTO `collaborateur` (`VIS_MATRICULE`, `VIS_NOM`, `Vis_PRENOM`, `VIS_ADRESSE`, `VIS_CP`, `VIS_VILLE`, `VIS_DATEEMBAUCHE`, `SEC_CODE`, `LAB_CODE`, `MDP`, `CODE_REG`) VALUES
+('a131', 'Villechalane', 'Louis', '8 cours Lafontaine', '29000', 'BREST', '1992-12-11 00:00:00', NULL, 'SW', 'a131', NULL),
+('a17', 'Andre', 'David', '1 r Aimon de Chissée', '38100', 'GRENOBLE', '1991-08-26 00:00:00', NULL, 'GY', 'a17', NULL),
+('a55', 'Bedos', 'Christian', '1 r Bénédictins', '65000', 'TARBES', '1987-07-17 00:00:00', NULL, 'GY', '', NULL),
+('a93', 'Tusseau', 'Louis', '22 r Renou', '86000', 'POITIERS', '1999-01-02 00:00:00', NULL, 'SW', '', NULL),
+('b13', 'Bentot', 'Pascal', '11 av 6 Juin', '67000', 'STRASBOURG', '1996-03-11 00:00:00', NULL, 'GY', '', NULL),
+('b16', 'Bioret', 'Luc', '1 r Linne', '35000', 'RENNES', '1997-03-21 00:00:00', NULL, 'SW', '', NULL),
+('b19', 'Bunisset', 'Francis', '10 r Nicolas Chorier', '85000', 'LA ROCHE SUR YON', '1999-01-31 00:00:00', NULL, 'GY', '', NULL),
+('b25', 'Bunisset', 'Denise', '1 r Lionne', '49100', 'ANGERS', '1994-07-03 00:00:00', NULL, 'SW', '', NULL),
+('b28', 'Cacheux', 'Bernard', '114 r Authie', '34000', 'MONTPELLIER', '2000-08-02 00:00:00', NULL, 'GY', '', NULL),
+('b34', 'Cadic', 'Eric', '123 r Caponière', '41000', 'BLOIS', '1993-12-06 00:00:00', 'P', 'SW', '', NULL),
+('b4', 'Charoze', 'Catherine', '100 pl Géants', '33000', 'BORDEAUX', '1997-09-25 00:00:00', NULL, 'SW', '', NULL),
+('b50', 'Clepkens', 'Christophe', '12 r Fédérico Garcia Lorca', '13000', 'MARSEILLE', '1998-01-18 00:00:00', NULL, 'SW', 'b50', NULL),
+('b59', 'Cottin', 'Vincenne', '36 sq Capucins', '5000', 'GAP', '1995-10-21 00:00:00', NULL, 'GY', '', NULL),
+('c14', 'Daburon', 'François', '13 r Champs Elysées', '6000', 'NICE', '1989-02-01 00:00:00', 'S', 'SW', '', NULL),
+('c3', 'De', 'Philippe', '13 r Charles Peguy', '10000', 'TROYES', '1992-05-05 00:00:00', NULL, 'SW', '', NULL),
+('c54', 'Debelle', 'Michel', '181 r Caponière', '88000', 'EPINAL', '1991-04-09 00:00:00', NULL, 'SW', '', NULL),
+('d13', 'Debelle', 'Jeanne', '134 r Stalingrad', '44000', 'NANTES', '1991-12-05 00:00:00', NULL, 'SW', '', NULL),
+('d51', 'Debroise', 'Michel', '2 av 6 Juin', '70000', 'VESOUL', '1997-11-18 00:00:00', 'E', 'GY', '', NULL),
+('e22', 'Desmarquest', 'Nathalie', '14 r Fédérico Garcia Lorca', '54000', 'NANCY', '1989-03-24 00:00:00', NULL, 'GY', '', NULL),
+('e24', 'Desnost', 'Pierre', '16 r Barral de Montferrat', '55000', 'VERDUN', '1993-05-17 00:00:00', 'E', 'SW', '', NULL),
+('e39', 'Dudouit', 'Frédéric', '18 quai Xavier Jouvin', '75000', 'PARIS', '1988-04-26 00:00:00', NULL, 'GY', '', NULL),
+('e49', 'Duncombe', 'Claude', '19 av Alsace Lorraine', '9000', 'FOIX', '1996-02-19 00:00:00', NULL, 'GY', '', NULL),
+('e5', 'Enault-Pascreau', 'Céline', '25B r Stalingrad', '40000', 'MONT DE MARSAN', '1990-11-27 00:00:00', 'S', 'GY', '', NULL),
+('e52', 'Eynde', 'Valérie', '3 r Henri Moissan', '76000', 'ROUEN', '1991-10-31 00:00:00', NULL, 'GY', '', NULL),
+('f21', 'Finck', 'Jacques', 'rte Montreuil Bellay', '74000', 'ANNECY', '1993-06-08 00:00:00', NULL, 'SW', '', NULL),
+('f39', 'Frémont', 'Fernande', '4 r Jean Giono', '69000', 'LYON', '1997-02-15 00:00:00', NULL, 'GY', '', NULL),
+('f4', 'Gest', 'Alain', '30 r Authie', '46000', 'FIGEAC', '1994-05-03 00:00:00', NULL, 'GY', '', NULL),
+('g19', 'Gheysen', 'Galassus', '32 bd Mar Foch', '75000', 'PARIS', '1996-01-18 00:00:00', NULL, 'SW', '', NULL),
+('g30', 'Girard', 'Yvon', '31 av 6 Juin', '80000', 'AMIENS', '1999-03-27 00:00:00', 'N', 'GY', '', NULL),
+('g53', 'Gombert', 'Luc', '32 r Emile Gueymard', '56000', 'VANNES', '1985-10-02 00:00:00', NULL, 'GY', '', NULL),
+('g7', 'Guindon', 'Caroline', '40 r Mar Montgomery', '87000', 'LIMOGES', '1996-01-13 00:00:00', NULL, 'GY', '', NULL),
+('h13', 'Guindon', 'François', '44 r Picotière', '19000', 'TULLE', '1993-05-08 00:00:00', NULL, 'SW', '', NULL),
+('h30', 'Igigabel', 'Guy', '33 gal Arlequin', '94000', 'CRETEIL', '1998-04-26 00:00:00', NULL, 'SW', '', NULL),
+('h35', 'Jourdren', 'Pierre', '34 av Jean Perrot', '15000', 'AURRILLAC', '1993-08-26 00:00:00', NULL, 'GY', '', NULL),
+('h40', 'Juttard', 'Pierre-Raoul', '34 cours Jean Jaurès', '8000', 'SEDAN', '1992-11-01 00:00:00', NULL, 'GY', '', NULL),
+('j45', 'Labouré-Morel', 'Saout', '38 cours Berriat', '52000', 'CHAUMONT', '1998-02-25 00:00:00', 'N', 'SW', '', NULL),
+('j50', 'Landré', 'Philippe', '4 av Gén Laperrine', '59000', 'LILLE', '1992-12-16 00:00:00', NULL, 'GY', '', NULL),
+('j8', 'Langeard', 'Hugues', '39 av Jean Perrot', '93000', 'BAGNOLET', '1998-06-18 00:00:00', 'P', 'GY', '', NULL),
+('k4', 'Lanne', 'Bernard', '4 r Bayeux', '30000', 'NIMES', '1996-11-21 00:00:00', NULL, 'SW', '', NULL),
+('k53', 'Le', 'Noël', '4 av Beauvert', '68000', 'MULHOUSE', '1983-03-23 00:00:00', NULL, 'SW', '', NULL),
+('l14', 'Le', 'Jean', '39 r Raspail', '53000', 'LAVAL', '1995-02-02 00:00:00', NULL, 'SW', '', NULL),
+('l23', 'Leclercq', 'Servane', '11 r Quinconce', '18000', 'BOURGES', '1995-06-05 00:00:00', NULL, 'SW', '', NULL),
+('l46', 'Lecornu', 'Jean-Bernard', '4 bd Mar Foch', '72000', 'LA FERTE BERNARD', '1997-01-24 00:00:00', NULL, 'GY', '', NULL),
+('l56', 'Lecornu', 'Ludovic', '4 r Abel Servien', '25000', 'BESANCON', '1996-02-27 00:00:00', NULL, 'SW', '', NULL),
+('m35', 'Lejard', 'Agnès', '4 r Anthoard', '82000', 'MONTAUBAN', '1987-10-06 00:00:00', NULL, 'SW', '', NULL),
+('m45', 'Lesaulnier', 'Pascal', '47 r Thiers', '57000', 'METZ', '1990-10-13 00:00:00', NULL, 'SW', '', NULL),
+('n42', 'Letessier', 'Stéphane', '5 chem Capuche', '27000', 'EVREUX', '1996-03-06 00:00:00', NULL, 'GY', '', NULL),
+('n58', 'Loirat', 'Didier', 'Les Pêchers cité Bourg la Croix', '45000', 'ORLEANS', '1992-08-30 00:00:00', NULL, 'GY', '', NULL),
+('n59', 'Maffezzoli', 'Thibaud', '5 r Chateaubriand', '2000', 'LAON', '1994-12-19 00:00:00', NULL, 'SW', '', NULL),
+('o26', 'Mancini', 'Anne', '5 r D''Agier', '48000', 'MENDE', '1995-01-05 00:00:00', NULL, 'GY', '', NULL),
+('p32', 'Marcouiller', 'Gérard', '7 pl St Gilles', '91000', 'ISSY LES MOULINEAUX', '1992-12-24 00:00:00', NULL, 'GY', '', NULL),
+('p40', 'Michel', 'Jean-Claude', '5 r Gabriel Péri', '61000', 'FLERS', '1992-12-14 00:00:00', 'O', 'SW', '', NULL),
+('p41', 'Montecot', 'Françoise', '6 r Paul Valéry', '17000', 'SAINTES', '1998-07-27 00:00:00', NULL, 'GY', '', NULL),
+('p42', 'Notini', 'Veronique', '5 r Lieut Chabal', '60000', 'BEAUVAIS', '1994-12-12 00:00:00', NULL, 'SW', '', NULL),
+('p49', 'Onfroy', 'Den', '5 r Sidonie Jacolin', '37000', 'TOURS', '1977-10-03 00:00:00', NULL, 'GY', '', NULL),
+('p6', 'Pascreau', 'Charles', '57 bd Mar Foch', '64000', 'PAU', '1997-03-30 00:00:00', NULL, 'SW', '', NULL),
+('p7', 'Pernot', 'Claude-Noël', '6 r Alexandre 1 de Yougoslavie', '11000', 'NARBONNE', '1990-03-01 00:00:00', NULL, 'SW', '', NULL),
+('p8', 'Perrier', 'Maître', '6 r Aubert Dubayet', '71000', 'CHALON SUR SAONE', '1991-06-23 00:00:00', NULL, 'GY', '', NULL),
+('q17', 'Petit', 'Jean-Louis', '7 r Ernest Renan', '50000', 'SAINT LO', '1997-09-06 00:00:00', NULL, 'GY', '', NULL),
+('r24', 'Piquery', 'Patrick', '9 r Vaucelles', '14000', 'CAEN', '1984-07-29 00:00:00', 'O', 'GY', '', NULL),
+('r58', 'Quiquandon', 'Joël', '7 r Ernest Renan', '29000', 'QUIMPER', '1990-06-30 00:00:00', NULL, 'GY', '', NULL),
+('s10', 'Retailleau', 'Josselin', '88Bis r Saumuroise', '39000', 'DOLE', '1995-11-14 00:00:00', NULL, 'SW', '', NULL),
+('s21', 'Retailleau', 'Pascal', '32 bd Ayrault', '23000', 'MONTLUCON', '1992-09-25 00:00:00', NULL, 'SW', '', NULL),
+('t43', 'Souron', 'Maryse', '7B r Gay Lussac', '21000', 'DIJON', '1995-03-09 00:00:00', NULL, 'SW', '', NULL),
+('t47', 'Tiphagne', 'Patrick', '7B r Gay Lussac', '62000', 'ARRAS', '1997-08-29 00:00:00', NULL, 'SW', '', NULL),
+('t55', 'Tréhet', 'Alain', '7D chem Barral', '12000', 'RODEZ', '1994-11-29 00:00:00', NULL, 'SW', '', NULL),
+('t60', 'Tusseau', 'Josselin', '63 r Bon Repos', '28000', 'CHARTRES', '1991-03-29 00:00:00', NULL, 'GY', '', NULL),
+('zzz', 'swiss', 'bourdin', NULL, NULL, NULL, '2003-06-18 00:00:00', NULL, 'BC', 'zzz', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'composant'
+-- Structure de la table `composant`
 --
 
-CREATE TABLE IF NOT EXISTS composant (
-  CMP_CODE varchar(4) NOT NULL,
-  CMP_LIBELLE varchar(25) DEFAULT NULL,
-  PRIMARY KEY (CMP_CODE)
-);
+CREATE TABLE IF NOT EXISTS `composant` (
+  `CMP_CODE` varchar(4) NOT NULL,
+  `CMP_LIBELLE` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`CMP_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'constituer'
+-- Structure de la table `constituer`
 --
 
-CREATE TABLE IF NOT EXISTS constituer (
-  MED_DEPOTLEGAL varchar(10) NOT NULL,
-  CMP_CODE varchar(4) NOT NULL,
-  CST_QTE float DEFAULT NULL,
-  PRIMARY KEY (MED_DEPOTLEGAL,CMP_CODE),
-  KEY CMP_CODE(CMP_CODE)
-) ;
+CREATE TABLE IF NOT EXISTS `constituer` (
+  `MED_DEPOTLEGAL` varchar(10) NOT NULL,
+  `CMP_CODE` varchar(4) NOT NULL,
+  `CST_QTE` float DEFAULT NULL,
+  PRIMARY KEY (`MED_DEPOTLEGAL`,`CMP_CODE`),
+  KEY `CMP_CODE` (`CMP_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'dosage'
+-- Structure de la table `dosage`
 --
 
-CREATE TABLE IF NOT EXISTS dosage (
-  DOS_CODE varchar(10) NOT NULL,
-  DOS_QUANTITE varchar(10) DEFAULT NULL,
-  DOS_UNITE varchar(10) DEFAULT NULL,
-  PRIMARY KEY (DOS_CODE)
-);
+CREATE TABLE IF NOT EXISTS `dosage` (
+  `DOS_CODE` varchar(10) NOT NULL,
+  `DOS_QUANTITE` varchar(10) DEFAULT NULL,
+  `DOS_UNITE` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`DOS_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'est_delegue'
+-- Structure de la table `famille`
 --
 
-CREATE TABLE IF NOT EXISTS est_delegue (
-  ID_Collaborateur varchar(11) NOT NULL,
-  Code_Region varchar(11) NOT NULL,
-  PRIMARY KEY (ID_Collaborateur,Code_Region),
-  KEY ID_Collaborateur (ID_Collaborateur),
-  KEY Code_Region (Code_Region)
-);
-
--- --------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `famille` (
+  `FAM_CODE` varchar(3) NOT NULL,
+  `FAM_LIBELLE` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`FAM_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Structure de la table 'famille'
+-- Contenu de la table `famille`
 --
 
-CREATE TABLE IF NOT EXISTS famille (
-  FAM_CODE varchar(3) NOT NULL,
-  FAM_LIBELLE varchar(80) DEFAULT NULL,
-  PRIMARY KEY (FAM_CODE)
-) ;
-
---
--- Contenu de la table 'famille'
---
-
-INSERT INTO famille (FAM_CODE, FAM_LIBELLE) VALUES
+INSERT INTO `famille` (`FAM_CODE`, `FAM_LIBELLE`) VALUES
 ('AA', 'Antalgiques en association'),
 ('AAA', 'Antalgiques antipyrétiques en association'),
 ('AAC', 'Antidépresseur d''action centrale'),
@@ -208,61 +213,61 @@ INSERT INTO famille (FAM_CODE, FAM_LIBELLE) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'formuler'
+-- Structure de la table `formuler`
 --
 
-CREATE TABLE IF NOT EXISTS formuler (
-  MED_DEPOTLEGAL varchar(10) NOT NULL,
-  PRE_CODE varchar(2) NOT NULL,
-  PRIMARY KEY (MED_DEPOTLEGAL,PRE_CODE),
-  KEY PRE_CODE (PRE_CODE)
-) ;
+CREATE TABLE IF NOT EXISTS `formuler` (
+  `MED_DEPOTLEGAL` varchar(10) NOT NULL,
+  `PRE_CODE` varchar(2) NOT NULL,
+  PRIMARY KEY (`MED_DEPOTLEGAL`,`PRE_CODE`),
+  KEY `PRE_CODE` (`PRE_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'interagir'
+-- Structure de la table `interagir`
 --
 
-CREATE TABLE IF NOT EXISTS interagir (
-  MED_PERTURBATEUR varchar(10) NOT NULL,
-  MED_MED_PERTURBE varchar(10) NOT NULL,
-  PRIMARY KEY (MED_PERTURBATEUR,MED_MED_PERTURBE),
-  KEY MED_MED_PERTURBE (MED_MED_PERTURBE)
-);
+CREATE TABLE IF NOT EXISTS `interagir` (
+  `MED_PERTURBATEUR` varchar(10) NOT NULL,
+  `MED_MED_PERTURBE` varchar(10) NOT NULL,
+  PRIMARY KEY (`MED_PERTURBATEUR`,`MED_MED_PERTURBE`),
+  KEY `MED_MED_PERTURBE` (`MED_MED_PERTURBE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'inviter'
+-- Structure de la table `inviter`
 --
 
-CREATE TABLE IF NOT EXISTS inviter (
-  AC_NUM  int(11) NOT NULL,
-   PRA_NUM  smallint(6) NOT NULL,
-   SPECIALISTEON  tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (AC_NUM,PRA_NUM),
-  KEY  PRA_NUM  (PRA_NUM)
-) ;
+CREATE TABLE IF NOT EXISTS `inviter` (
+  `AC_NUM` int(11) NOT NULL,
+  `PRA_NUM` smallint(6) NOT NULL,
+  `SPECIALISTEON` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`AC_NUM`,`PRA_NUM`),
+  KEY `PRA_NUM` (`PRA_NUM`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'labo'
+-- Structure de la table `labo`
 --
 
-CREATE TABLE IF NOT EXISTS  labo  (
-   LAB_CODE  varchar(2) NOT NULL,
-   LAB_NOM  varchar(10) DEFAULT NULL,
-   LAB_CHEFVENTE  varchar(20) DEFAULT NULL,
-  PRIMARY KEY ( LAB_CODE )
-) ;
+CREATE TABLE IF NOT EXISTS `labo` (
+  `LAB_CODE` varchar(2) NOT NULL,
+  `LAB_NOM` varchar(10) DEFAULT NULL,
+  `LAB_CHEFVENTE` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`LAB_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'labo'
+-- Contenu de la table `labo`
 --
 
-INSERT INTO  labo  ('LAB_CODE', 'LAB_NOM', 'LAB_CHEFVENTE') VALUES
+INSERT INTO `labo` (`LAB_CODE`, `LAB_NOM`, `LAB_CHEFVENTE`) VALUES
 ('BC', 'Bichat', 'Suzanne Terminus'),
 ('GY', 'Gyverny', 'Marcel MacDouglas'),
 ('SW', 'Swiss Kane', 'Alain Poutre');
@@ -270,26 +275,26 @@ INSERT INTO  labo  ('LAB_CODE', 'LAB_NOM', 'LAB_CHEFVENTE') VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'medicament'
+-- Structure de la table `medicament`
 --
 
-CREATE TABLE IF NOT EXISTS  medicament  (
-   MED_DEPOTLEGAL  varchar(10) NOT NULL,
-   MED_NOMCOMMERCIAL  varchar(25) DEFAULT NULL,
-   FAM_CODE  varchar(3) NOT NULL,
-   MED_COMPOSITION  varchar(255) DEFAULT NULL,
-   MED_EFFETS  varchar(255) DEFAULT NULL,
-   MED_CONTREINDIC  varchar(255) DEFAULT NULL,
-   MED_PRIXECHANTILLON  float DEFAULT NULL,
-  PRIMARY KEY ( MED_DEPOTLEGAL ),
-  KEY  FAM_CODE  ( FAM_CODE )
-);
+CREATE TABLE IF NOT EXISTS `medicament` (
+  `MED_DEPOTLEGAL` varchar(10) NOT NULL,
+  `MED_NOMCOMMERCIAL` varchar(25) DEFAULT NULL,
+  `FAM_CODE` varchar(3) NOT NULL,
+  `MED_COMPOSITION` varchar(255) DEFAULT NULL,
+  `MED_EFFETS` varchar(255) DEFAULT NULL,
+  `MED_CONTREINDIC` varchar(255) DEFAULT NULL,
+  `MED_PRIXECHANTILLON` float DEFAULT NULL,
+  PRIMARY KEY (`MED_DEPOTLEGAL`),
+  KEY `FAM_CODE` (`FAM_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'medicament'
+-- Contenu de la table `medicament`
 --
 
-INSERT INTO medicament (MED_DEPOTLEGAL, MED_NOMCOMMERCIAL, FAM_CODE, MED_COMPOSITION, MED_EFFETS, MED_CONTREINDIC, MED_PRIXECHANTILLON) VALUES
+INSERT INTO `medicament` (`MED_DEPOTLEGAL`, `MED_NOMCOMMERCIAL`, `FAM_CODE`, `MED_COMPOSITION`, `MED_EFFETS`, `MED_CONTREINDIC`, `MED_PRIXECHANTILLON`) VALUES
 ('3MYC7', 'TRIMYCINE', 'CRT', 'Triamcinolone (acétonide) + Néomycine + Nystatine', 'Ce médicament est un corticoïde à  activité forte ou très forte associé à  un antibiotique et un antifongique, utilisé en application locale dans certaines atteintes cutanées surinfectées.', 'Ce médicament est contre-indiqué en cas d''allergie à  l''un des constituants, d''infections de la peau ou de parasitisme non traités, d''acné. Ne pas appliquer sur une plaie, ni sous un pansement occlusif.', NULL),
 ('ADIMOL9', 'ADIMOL', 'ABP', 'Amoxicilline + Acide clavulanique', 'Ce médicament, plus puissant que les pénicillines simples, est utilisé pour traiter des infections bactériennes spécifiques.', 'Ce médicament est contre-indiqué en cas d''allergie aux pénicillines ou aux céphalosporines.', NULL),
 ('AMOPIL7', 'AMOPIL', 'ABP', 'Amoxicilline', 'Ce médicament, plus puissant que les pénicillines simples, est utilisé pour traiter des infections bactériennes spécifiques.', 'Ce médicament est contre-indiqué en cas d''allergie aux pénicillines. Il doit être administré avec prudence en cas d''allergie aux céphalosporines.', NULL),
@@ -322,69 +327,80 @@ INSERT INTO medicament (MED_DEPOTLEGAL, MED_NOMCOMMERCIAL, FAM_CODE, MED_COMPOSI
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'motif_visit'
+-- Structure de la table `motif_visit`
 --
 
-CREATE TABLE IF NOT EXISTS motif_visit (
-  id int(10) NOT NULL AUTO_INCREMENT,
-  Libelle varchar(50) NOT NULL,
-  PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS `motif_visit` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `Libelle` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `motif_visit`
+--
+
+INSERT INTO `motif_visit` (`id`, `Libelle`) VALUES
+(1, 'Périodicité'),
+(2, 'Actualisation'),
+(3, 'Relance'),
+(4, 'Sollicitation praticien'),
+(5, 'Autre');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'offrir'
+-- Structure de la table `offrir`
 --
 
-CREATE TABLE IF NOT EXISTS offrir (
-  VIS_MATRICULE varchar(10) NOT NULL,
-  RAP_NUM int(11) NOT NULL,
-  MED_DEPOTLEGAL varchar(10) NOT NULL,
-  OFF_QTE smallint(6) DEFAULT NULL,
-  PRIMARY KEY (VIS_MATRICULE,RAP_NUM,MED_DEPOTLEGAL),
-  KEY MED_DEPOTLEGAL (MED_DEPOTLEGAL)
-) ;
+CREATE TABLE IF NOT EXISTS `offrir` (
+  `VIS_MATRICULE` varchar(10) NOT NULL,
+  `RAP_NUM` int(11) NOT NULL,
+  `MED_DEPOTLEGAL` varchar(10) NOT NULL,
+  `OFF_QTE` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`VIS_MATRICULE`,`RAP_NUM`,`MED_DEPOTLEGAL`),
+  KEY `MED_DEPOTLEGAL` (`MED_DEPOTLEGAL`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'posseder'
+-- Structure de la table `posseder`
 --
 
-CREATE TABLE IF NOT EXISTS  posseder  (
-   PRA_NUM  smallint(6) NOT NULL,
-   SPE_CODE  varchar(5) NOT NULL,
-   POS_DIPLOME  varchar(10) DEFAULT NULL,
-   POS_COEFPRESCRIPTION  float DEFAULT NULL,
-  PRIMARY KEY ( PRA_NUM , SPE_CODE ),
-  KEY  SPE_CODE  ( SPE_CODE )
-) ;
+CREATE TABLE IF NOT EXISTS `posseder` (
+  `PRA_NUM` smallint(6) NOT NULL,
+  `SPE_CODE` varchar(5) NOT NULL,
+  `POS_DIPLOME` varchar(10) DEFAULT NULL,
+  `POS_COEFPRESCRIPTION` float DEFAULT NULL,
+  PRIMARY KEY (`PRA_NUM`,`SPE_CODE`),
+  KEY `SPE_CODE` (`SPE_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'praticien'
+-- Structure de la table `praticien`
 --
 
-CREATE TABLE IF NOT EXISTS  praticien  (
-   PRA_NUM  smallint(6) NOT NULL,
-   PRA_NOM  varchar(25) DEFAULT NULL,
-   PRA_PRENOM  varchar(30) DEFAULT NULL,
-   PRA_ADRESSE  varchar(50) DEFAULT NULL,
-   PRA_CP  varchar(5) DEFAULT NULL,
-   PRA_VILLE  varchar(25) DEFAULT NULL,
-   PRA_COEFNOTORIETE  float DEFAULT NULL,
-   TYP_CODE  varchar(3) NOT NULL,
-  PRIMARY KEY ( PRA_NUM ),
-  KEY  TYP_CODE  ( TYP_CODE )
-);
+CREATE TABLE IF NOT EXISTS `praticien` (
+  `PRA_NUM` smallint(6) NOT NULL,
+  `PRA_NOM` varchar(25) DEFAULT NULL,
+  `PRA_PRENOM` varchar(30) DEFAULT NULL,
+  `PRA_ADRESSE` varchar(50) DEFAULT NULL,
+  `PRA_CP` varchar(5) DEFAULT NULL,
+  `PRA_VILLE` varchar(25) DEFAULT NULL,
+  `PRA_COEFNOTORIETE` float DEFAULT NULL,
+  `TYP_CODE` varchar(3) NOT NULL,
+  PRIMARY KEY (`PRA_NUM`),
+  KEY `TYP_CODE` (`TYP_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'praticien'
+-- Contenu de la table `praticien`
 --
 
-INSERT INTO  praticien  (PRA_NUM, PRA_NOM, PRA_PRENOM, PRA_ADRESSE, PRA_CP, PRA_VILLE, PRA_COEFNOTORIETE, TYP_CODE) VALUES
+INSERT INTO `praticien` (`PRA_NUM`, `PRA_NOM`, `PRA_PRENOM`, `PRA_ADRESSE`, `PRA_CP`, `PRA_VILLE`, `PRA_COEFNOTORIETE`, `TYP_CODE`) VALUES
 (1, 'Notini', 'Alain', '114 r Authie', '85000', 'LA ROCHE SUR YON', 290.03, 'MH'),
 (2, 'Gosselin', 'Albert', '13 r Devon', '41000', 'BLOIS', 307.49, 'MV'),
 (3, 'Delahaye', 'André', '36 av 6 Juin', '25000', 'BESANCON', 185.79, 'PS'),
@@ -475,102 +491,102 @@ INSERT INTO  praticien  (PRA_NUM, PRA_NOM, PRA_PRENOM, PRA_ADRESSE, PRA_CP, PRA_
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'prescrire'
+-- Structure de la table `prescrire`
 --
 
-CREATE TABLE IF NOT EXISTS  prescrire  (
-   MED_DEPOTLEGAL  varchar(10) NOT NULL,
-   TIN_CODE  varchar(5) NOT NULL,
-   DOS_CODE  varchar(10) NOT NULL,
-   PRE_POSOLOGIE  varchar(40) DEFAULT NULL,
-  PRIMARY KEY ( MED_DEPOTLEGAL , TIN_CODE , DOS_CODE ),
-  KEY  TIN_CODE  ( TIN_CODE ),
-  KEY  DOS_CODE  ( DOS_CODE )
-) ;
+CREATE TABLE IF NOT EXISTS `prescrire` (
+  `MED_DEPOTLEGAL` varchar(10) NOT NULL,
+  `TIN_CODE` varchar(5) NOT NULL,
+  `DOS_CODE` varchar(10) NOT NULL,
+  `PRE_POSOLOGIE` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`MED_DEPOTLEGAL`,`TIN_CODE`,`DOS_CODE`),
+  KEY `TIN_CODE` (`TIN_CODE`),
+  KEY `DOS_CODE` (`DOS_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'presentation'
+-- Structure de la table `presentation`
 --
 
-CREATE TABLE IF NOT EXISTS  presentation  (
-   PRE_CODE  varchar(2) NOT NULL,
-   PRE_LIBELLE  varchar(20) DEFAULT NULL,
-  PRIMARY KEY ( PRE_CODE )
-) ;
+CREATE TABLE IF NOT EXISTS `presentation` (
+  `PRE_CODE` varchar(2) NOT NULL,
+  `PRE_LIBELLE` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`PRE_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'presentation_medica'
+-- Structure de la table `presentation_medica`
 --
 
-CREATE TABLE IF NOT EXISTS  presentation_medica  (
-   RAP_VIS  varchar(50) NOT NULL,
-   MEDICAMENT  varchar(50) NOT NULL,
-  KEY  RAP_VIS  ( RAP_VIS ),
-  KEY  MEDICAMENT  ( MEDICAMENT )
-);
+CREATE TABLE IF NOT EXISTS `presentation_medica` (
+  `RAP_VIS` varchar(50) NOT NULL,
+  `MEDICAMENT` varchar(50) NOT NULL,
+  KEY `RAP_VIS` (`RAP_VIS`),
+  KEY `MEDICAMENT` (`MEDICAMENT`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'rapport_visite'
+-- Structure de la table `rapport_visite`
 --
 
-CREATE TABLE IF NOT EXISTS  rapport_visite  (
-   VIS_MATRICULE  varchar(10) NOT NULL,
-   RAP_NUM  int(11) NOT NULL,
-   PRA_NUM  smallint(6) NOT NULL,
-   RAP_DATE  datetime DEFAULT NULL,
-   Etat  varchar(50) NOT NULL,
-   ChampMotifLibre  varchar(255) NOT NULL,
-   DateSaisi  date NOT NULL,
-   ImpactVisite  int(11) NOT NULL,
-   Observation  varchar(255) NOT NULL,
-   Coeff_Conf  int(11) NOT NULL,
-   motif  int(11) NOT NULL,
-   Remplacant  smallint(6) NOT NULL,
-  PRIMARY KEY ( VIS_MATRICULE , RAP_NUM ),
-  KEY  PRA_NUM  ( PRA_NUM ),
-  KEY  motif  ( motif ),
-  KEY  Remplacant  ( Remplacant )
-) ;
+CREATE TABLE IF NOT EXISTS `rapport_visite` (
+  `VIS_MATRICULE` varchar(10) NOT NULL,
+  `RAP_NUM` int(11) NOT NULL,
+  `PRA_NUM` smallint(6) NOT NULL,
+  `RAP_DATE` datetime DEFAULT NULL,
+  `Etat` varchar(50) NOT NULL,
+  `ChampMotifLibre` varchar(255) NOT NULL,
+  `DateSaisi` date NOT NULL,
+  `ImpactVisite` int(11) NOT NULL,
+  `Observation` varchar(255) NOT NULL,
+  `Coeff_Conf` int(11) NOT NULL,
+  `motif` int(11) NOT NULL,
+  `Remplacant` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`VIS_MATRICULE`,`RAP_NUM`),
+  KEY `PRA_NUM` (`PRA_NUM`),
+  KEY `motif` (`motif`),
+  KEY `Remplacant` (`Remplacant`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'realiser'
+-- Structure de la table `realiser`
 --
 
-CREATE TABLE IF NOT EXISTS  realiser  (
-   AC_NUM  int(11) NOT NULL,
-   VIS_MATRICULE  varchar(10) NOT NULL,
-   REA_MTTFRAIS  float DEFAULT NULL,
-  PRIMARY KEY ( AC_NUM , VIS_MATRICULE ),
-  KEY  VIS_MATRICULE  ( VIS_MATRICULE )
-) ;
+CREATE TABLE IF NOT EXISTS `realiser` (
+  `AC_NUM` int(11) NOT NULL,
+  `VIS_MATRICULE` varchar(10) NOT NULL,
+  `REA_MTTFRAIS` float DEFAULT NULL,
+  PRIMARY KEY (`AC_NUM`,`VIS_MATRICULE`),
+  KEY `VIS_MATRICULE` (`VIS_MATRICULE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table  region 
+-- Structure de la table `region`
 --
 
-CREATE TABLE IF NOT EXISTS  region  (
-   REG_CODE  varchar(2) NOT NULL,
-   SEC_CODE  varchar(1) NOT NULL,
-   REG_NOM  varchar(50) DEFAULT NULL,
-  PRIMARY KEY ( REG_CODE ),
-  KEY  SEC_CODE  ( SEC_CODE )
-);
+CREATE TABLE IF NOT EXISTS `region` (
+  `REG_CODE` varchar(2) NOT NULL,
+  `SEC_CODE` varchar(1) NOT NULL,
+  `REG_NOM` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`REG_CODE`),
+  KEY `SEC_CODE` (`SEC_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'region'
+-- Contenu de la table `region`
 --
 
-INSERT INTO region (REG_CODE, SEC_CODE, REG_NOM) VALUES
+INSERT INTO `region` (`REG_CODE`, `SEC_CODE`, `REG_NOM`) VALUES
 ('AL', 'E', 'Alsace Lorraine'),
 ('AQ', 'S', 'Aquitaine'),
 ('AU', 'P', 'Auvergne'),
@@ -597,20 +613,20 @@ INSERT INTO region (REG_CODE, SEC_CODE, REG_NOM) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'secteur'
+-- Structure de la table `secteur`
 --
 
-CREATE TABLE IF NOT EXISTS  secteur  (
-   SEC_CODE  varchar(1) NOT NULL,
-   SEC_LIBELLE  varchar(15) DEFAULT NULL,
-  PRIMARY KEY ( SEC_CODE )
-);
+CREATE TABLE IF NOT EXISTS `secteur` (
+  `SEC_CODE` varchar(1) NOT NULL,
+  `SEC_LIBELLE` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`SEC_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'secteur'
+-- Contenu de la table `secteur`
 --
 
-INSERT INTO  secteur  (SEC_CODE, SEC_LIBELLE) VALUES
+INSERT INTO `secteur` (`SEC_CODE`, `SEC_LIBELLE`) VALUES
 ('E', 'Est'),
 ('N', 'Nord'),
 ('O', 'Ouest'),
@@ -620,20 +636,20 @@ INSERT INTO  secteur  (SEC_CODE, SEC_LIBELLE) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'specialite'
+-- Structure de la table `specialite`
 --
 
-CREATE TABLE IF NOT EXISTS specialite (
-  SPE_CODE varchar(5) NOT NULL,
-  SPE_LIBELLE varchar(150) DEFAULT NULL,
-  PRIMARY KEY (SPE_CODE)
-);
+CREATE TABLE IF NOT EXISTS `specialite` (
+  `SPE_CODE` varchar(5) NOT NULL,
+  `SPE_LIBELLE` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`SPE_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'specialite'
+-- Contenu de la table `specialite`
 --
 
-INSERT INTO specialite (SPE_CODE, SPE_LIBELLE) VALUES
+INSERT INTO `specialite` (`SPE_CODE`, `SPE_LIBELLE`) VALUES
 ('ACP', 'anatomie et cytologie pathologiques'),
 ('AMV', 'angéiologie, médecine vasculaire'),
 ('ARC', 'anesthésiologie et réanimation chirurgicale'),
@@ -682,23 +698,23 @@ INSERT INTO specialite (SPE_CODE, SPE_LIBELLE) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'switchboard items'
+-- Structure de la table `switchboard items`
 --
 
-CREATE TABLE IF NOT EXISTS switchboard items (
-  SwitchboardID int(11) NOT NULL,
-  ItemNumber smallint(6) NOT NULL,
-  ItemText varchar(255) DEFAULT NULL,
-  Command smallint(6) DEFAULT NULL,
-  Argument varchar(255) DEFAULT NULL,
-  PRIMARY KEY (SwitchboardID,ItemNumber)
-) ;
+CREATE TABLE IF NOT EXISTS `switchboard items` (
+  `SwitchboardID` int(11) NOT NULL,
+  `ItemNumber` smallint(6) NOT NULL,
+  `ItemText` varchar(255) DEFAULT NULL,
+  `Command` smallint(6) DEFAULT NULL,
+  `Argument` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`SwitchboardID`,`ItemNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table 'switchboard items'
+-- Contenu de la table `switchboard items`
 --
 
-INSERT INTO switchboard items (SwitchboardID, ItemNumber, ItemText, Command, Argument) VALUES
+INSERT INTO `switchboard items` (`SwitchboardID`, `ItemNumber`, `ItemText`, `Command`, `Argument`) VALUES
 (1, 0, 'Gestion des comptes rendus', NULL, 'Par défaut'),
 (1, 1, 'Comptes-Rendus', 3, 'RAPPORT_VISITE'),
 (1, 2, 'Visiteurs', 3, 'F_VISITEUR'),
@@ -709,24 +725,24 @@ INSERT INTO switchboard items (SwitchboardID, ItemNumber, ItemText, Command, Arg
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'travailler'
+-- Structure de la table `travailler`
 --
 
-CREATE TABLE IF NOT EXISTS travailler  (
-   VIS_MATRICULE  varchar(10) NOT NULL,
-   JJMMAA  datetime NOT NULL,
-   REG_CODE  varchar(2) NOT NULL,
-   TRA_ROLE  varchar(11) DEFAULT NULL,
-  PRIMARY KEY ( JJMMAA , VIS_MATRICULE , REG_CODE ),
-  KEY  REG_CODE  ( REG_CODE ),
-  KEY  VIS_MATRICULE  ( VIS_MATRICULE )
-);
+CREATE TABLE IF NOT EXISTS `travailler` (
+  `VIS_MATRICULE` varchar(10) NOT NULL,
+  `JJMMAA` datetime NOT NULL,
+  `REG_CODE` varchar(2) NOT NULL,
+  `TRA_ROLE` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`JJMMAA`,`VIS_MATRICULE`,`REG_CODE`),
+  KEY `REG_CODE` (`REG_CODE`),
+  KEY `VIS_MATRICULE` (`VIS_MATRICULE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table  travailler 
+-- Contenu de la table `travailler`
 --
 
-INSERT INTO  travailler  (VIS_MATRICULE, JJMMAA, REG_CODE, TRA_ROLE) VALUES
+INSERT INTO `travailler` (`VIS_MATRICULE`, `JJMMAA`, `REG_CODE`, `TRA_ROLE`) VALUES
 ('p49', '1977-10-03 00:00:00', 'CE', 'Visiteur'),
 ('k53', '1983-03-23 00:00:00', 'CA', 'Visiteur'),
 ('r24', '1984-07-29 00:00:00', 'BN', 'Visiteur'),
@@ -815,33 +831,33 @@ INSERT INTO  travailler  (VIS_MATRICULE, JJMMAA, REG_CODE, TRA_ROLE) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'type_individu'
+-- Structure de la table `type_individu`
 --
 
-CREATE TABLE IF NOT EXISTS type_individu  (
-   TIN_CODE  varchar(5) NOT NULL,
-   TIN_LIBELLE  varchar(50) DEFAULT NULL,
-  PRIMARY KEY ( TIN_CODE )
-);
+CREATE TABLE IF NOT EXISTS `type_individu` (
+  `TIN_CODE` varchar(5) NOT NULL,
+  `TIN_LIBELLE` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`TIN_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table  type_praticien 
+-- Structure de la table `type_praticien`
 --
 
-CREATE TABLE IF NOT EXISTS  type_praticien  (
-   TYP_CODE  varchar(3) NOT NULL,
-   TYP_LIBELLE  varchar(25) DEFAULT NULL,
-   TYP_LIEU  varchar(35) DEFAULT NULL,
-  PRIMARY KEY ( TYP_CODE )
-);
+CREATE TABLE IF NOT EXISTS `type_praticien` (
+  `TYP_CODE` varchar(3) NOT NULL,
+  `TYP_LIBELLE` varchar(25) DEFAULT NULL,
+  `TYP_LIEU` varchar(35) DEFAULT NULL,
+  PRIMARY KEY (`TYP_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table  type_praticien 
+-- Contenu de la table `type_praticien`
 --
 
-INSERT INTO  type_praticien  ( TYP_CODE ,  TYP_LIBELLE ,  TYP_LIEU ) VALUES
+INSERT INTO `type_praticien` (`TYP_CODE`, `TYP_LIBELLE`, `TYP_LIEU`) VALUES
 ('MH', 'Médecin Hospitalier', 'Hopital ou clinique'),
 ('MV', 'Médecine de Ville', 'Cabinet'),
 ('PH', 'Pharmacien Hospitalier', 'Hopital ou clinique'),
@@ -853,108 +869,104 @@ INSERT INTO  type_praticien  ( TYP_CODE ,  TYP_LIBELLE ,  TYP_LIEU ) VALUES
 --
 
 --
--- Contraintes pour la table 'collaborateur'
+-- Contraintes pour la table `collaborateur`
 --
-ALTER TABLE  collaborateur 
-  ADD CONSTRAINT  collaborateur_ibfk_1  FOREIGN KEY ( LAB_CODE ) REFERENCES  labo  ( LAB_CODE ),
-  ADD CONSTRAINT  collaborateur_ibfk_2  FOREIGN KEY ( SEC_CODE ) REFERENCES  secteur  ( SEC_CODE );
+ALTER TABLE `collaborateur`
+  ADD CONSTRAINT `fk_estdeleguer` FOREIGN KEY (`CODE_REG`) REFERENCES `region` (`REG_CODE`),
+  ADD CONSTRAINT `collaborateur_ibfk_1` FOREIGN KEY (`LAB_CODE`) REFERENCES `labo` (`LAB_CODE`),
+  ADD CONSTRAINT `collaborateur_ibfk_2` FOREIGN KEY (`SEC_CODE`) REFERENCES `secteur` (`SEC_CODE`);
 
 --
--- Contraintes pour la table  constituer 
+-- Contraintes pour la table `constituer`
 --
-ALTER TABLE  constituer 
-  ADD CONSTRAINT  constituer_ibfk_2  FOREIGN KEY ( MED_DEPOTLEGAL ) REFERENCES  medicament  ( MED_DEPOTLEGAL ),
-  ADD CONSTRAINT  constituer_ibfk_1  FOREIGN KEY ( CMP_CODE ) REFERENCES  composant  ( CMP_CODE );
+ALTER TABLE `constituer`
+  ADD CONSTRAINT `constituer_ibfk_1` FOREIGN KEY (`CMP_CODE`) REFERENCES `composant` (`CMP_CODE`),
+  ADD CONSTRAINT `constituer_ibfk_2` FOREIGN KEY (`MED_DEPOTLEGAL`) REFERENCES `medicament` (`MED_DEPOTLEGAL`);
 
 --
--- Contraintes pour la table  est_delegue 
+-- Contraintes pour la table `formuler`
 --
-ALTER TABLE  est_delegue 
-  ADD CONSTRAINT  FK_delegue1  FOREIGN KEY ( Code_Region ) REFERENCES  region  ( REG_CODE ),
-  ADD CONSTRAINT  FK_delegue  FOREIGN KEY ( ID_Collaborateur ) REFERENCES  collaborateur  ( VIS_MATRICULE );
+ALTER TABLE `formuler`
+  ADD CONSTRAINT `formuler_ibfk_1` FOREIGN KEY (`PRE_CODE`) REFERENCES `presentation` (`PRE_CODE`),
+  ADD CONSTRAINT `formuler_ibfk_2` FOREIGN KEY (`MED_DEPOTLEGAL`) REFERENCES `medicament` (`MED_DEPOTLEGAL`);
 
 --
--- Contraintes pour la table  formuler 
+-- Contraintes pour la table `interagir`
 --
-ALTER TABLE  formuler 
-  ADD CONSTRAINT  formuler_ibfk_2  FOREIGN KEY ( MED_DEPOTLEGAL ) REFERENCES  medicament  ( MED_DEPOTLEGAL ),
-  ADD CONSTRAINT  formuler_ibfk_1  FOREIGN KEY ( PRE_CODE ) REFERENCES  presentation  ( PRE_CODE );
+ALTER TABLE `interagir`
+  ADD CONSTRAINT `interagir_ibfk_1` FOREIGN KEY (`MED_PERTURBATEUR`) REFERENCES `medicament` (`MED_DEPOTLEGAL`),
+  ADD CONSTRAINT `interagir_ibfk_2` FOREIGN KEY (`MED_MED_PERTURBE`) REFERENCES `medicament` (`MED_DEPOTLEGAL`);
 
 --
--- Contraintes pour la table  interagir 
+-- Contraintes pour la table `inviter`
 --
-ALTER TABLE  interagir 
-  ADD CONSTRAINT  interagir_ibfk_2  FOREIGN KEY ( MED_MED_PERTURBE ) REFERENCES  medicament  ( MED_DEPOTLEGAL ),
-  ADD CONSTRAINT  interagir_ibfk_1  FOREIGN KEY ( MED_PERTURBATEUR ) REFERENCES  medicament  ( MED_DEPOTLEGAL );
+ALTER TABLE `inviter`
+  ADD CONSTRAINT `inviter_ibfk_1` FOREIGN KEY (`AC_NUM`) REFERENCES `activite_compl` (`AC_NUM`),
+  ADD CONSTRAINT `inviter_ibfk_2` FOREIGN KEY (`PRA_NUM`) REFERENCES `praticien` (`PRA_NUM`);
 
 --
--- Contraintes pour la table  inviter 
+-- Contraintes pour la table `medicament`
 --
-ALTER TABLE  inviter 
-  ADD CONSTRAINT  inviter_ibfk_2  FOREIGN KEY ( PRA_NUM ) REFERENCES  praticien  ( PRA_NUM ),
-  ADD CONSTRAINT  inviter_ibfk_1  FOREIGN KEY ( AC_NUM ) REFERENCES  activite_compl  ( AC_NUM );
+ALTER TABLE `medicament`
+  ADD CONSTRAINT `medicament_ibfk_1` FOREIGN KEY (`FAM_CODE`) REFERENCES `famille` (`FAM_CODE`);
 
 --
--- Contraintes pour la table  medicament 
+-- Contraintes pour la table `offrir`
 --
-ALTER TABLE  medicament 
-  ADD CONSTRAINT  medicament_ibfk_1  FOREIGN KEY ( FAM_CODE ) REFERENCES  famille  ( FAM_CODE );
+ALTER TABLE `offrir`
+  ADD CONSTRAINT `offrir_ibfk_1` FOREIGN KEY (`MED_DEPOTLEGAL`) REFERENCES `medicament` (`MED_DEPOTLEGAL`),
+  ADD CONSTRAINT `offrir_ibfk_2` FOREIGN KEY (`VIS_MATRICULE`, `RAP_NUM`) REFERENCES `rapport_visite` (`VIS_MATRICULE`, `RAP_NUM`);
 
 --
--- Contraintes pour la table  offrir 
+-- Contraintes pour la table `posseder`
 --
-ALTER TABLE  offrir 
-  ADD CONSTRAINT  offrir_ibfk_2  FOREIGN KEY ( VIS_MATRICULE ,  RAP_NUM ) REFERENCES  rapport_visite  ( VIS_MATRICULE ,  RAP_NUM ),
-  ADD CONSTRAINT  offrir_ibfk_1  FOREIGN KEY ( MED_DEPOTLEGAL ) REFERENCES  medicament  ( MED_DEPOTLEGAL );
+ALTER TABLE `posseder`
+  ADD CONSTRAINT `posseder_ibfk_1` FOREIGN KEY (`SPE_CODE`) REFERENCES `specialite` (`SPE_CODE`),
+  ADD CONSTRAINT `posseder_ibfk_2` FOREIGN KEY (`PRA_NUM`) REFERENCES `praticien` (`PRA_NUM`);
 
 --
--- Contraintes pour la table  posseder 
+-- Contraintes pour la table `praticien`
 --
-ALTER TABLE  posseder 
-  ADD CONSTRAINT  posseder_ibfk_2  FOREIGN KEY ( PRA_NUM ) REFERENCES  praticien  ( PRA_NUM ),
-  ADD CONSTRAINT  posseder_ibfk_1  FOREIGN KEY ( SPE_CODE ) REFERENCES  specialite  ( SPE_CODE );
+ALTER TABLE `praticien`
+  ADD CONSTRAINT `praticien_ibfk_1` FOREIGN KEY (`TYP_CODE`) REFERENCES `type_praticien` (`TYP_CODE`);
 
 --
--- Contraintes pour la table  praticien 
+-- Contraintes pour la table `prescrire`
 --
-ALTER TABLE  praticien 
-  ADD CONSTRAINT  praticien_ibfk_1  FOREIGN KEY ( TYP_CODE ) REFERENCES  type_praticien  ( TYP_CODE );
+ALTER TABLE `prescrire`
+  ADD CONSTRAINT `prescrire_ibfk_1` FOREIGN KEY (`MED_DEPOTLEGAL`) REFERENCES `medicament` (`MED_DEPOTLEGAL`),
+  ADD CONSTRAINT `prescrire_ibfk_2` FOREIGN KEY (`TIN_CODE`) REFERENCES `type_individu` (`TIN_CODE`),
+  ADD CONSTRAINT `prescrire_ibfk_3` FOREIGN KEY (`DOS_CODE`) REFERENCES `dosage` (`DOS_CODE`);
 
 --
--- Contraintes pour la table  prescrire 
+-- Contraintes pour la table `rapport_visite`
 --
-ALTER TABLE  prescrire 
-  ADD CONSTRAINT  prescrire_ibfk_3  FOREIGN KEY ( DOS_CODE ) REFERENCES  dosage  ( DOS_CODE ),
-  ADD CONSTRAINT  prescrire_ibfk_1  FOREIGN KEY ( MED_DEPOTLEGAL ) REFERENCES  medicament  ( MED_DEPOTLEGAL ),
-  ADD CONSTRAINT  prescrire_ibfk_2  FOREIGN KEY ( TIN_CODE ) REFERENCES  type_individu  ( TIN_CODE );
+ALTER TABLE `rapport_visite`
+  ADD CONSTRAINT `FK_motif` FOREIGN KEY (`motif`) REFERENCES `motif_visit` (`id`),
+  ADD CONSTRAINT `FK_remp` FOREIGN KEY (`Remplacant`) REFERENCES `praticien` (`PRA_NUM`),
+  ADD CONSTRAINT `rapport_visite_ibfk_1` FOREIGN KEY (`PRA_NUM`) REFERENCES `praticien` (`PRA_NUM`),
+  ADD CONSTRAINT `rapport_visite_ibfk_2` FOREIGN KEY (`VIS_MATRICULE`) REFERENCES `collaborateur` (`VIS_MATRICULE`);
 
 --
--- Contraintes pour la table  rapport_visite 
+-- Contraintes pour la table `realiser`
 --
-ALTER TABLE  rapport_visite 
-  ADD CONSTRAINT  FK_remp  FOREIGN KEY ( Remplacant ) REFERENCES  praticien  ( PRA_NUM ),
-  ADD CONSTRAINT  FK_motif  FOREIGN KEY ( motif ) REFERENCES  motif_visit  ( id ),
-  ADD CONSTRAINT  rapport_visite_ibfk_1  FOREIGN KEY ( PRA_NUM ) REFERENCES  praticien  ( PRA_NUM ),
-  ADD CONSTRAINT  rapport_visite_ibfk_2  FOREIGN KEY ( VIS_MATRICULE ) REFERENCES  collaborateur  ( VIS_MATRICULE );
+ALTER TABLE `realiser`
+  ADD CONSTRAINT `realiser_ibfk_1` FOREIGN KEY (`AC_NUM`) REFERENCES `activite_compl` (`AC_NUM`),
+  ADD CONSTRAINT `realiser_ibfk_2` FOREIGN KEY (`VIS_MATRICULE`) REFERENCES `collaborateur` (`VIS_MATRICULE`);
 
 --
--- Contraintes pour la table  realiser 
+-- Contraintes pour la table `region`
 --
-ALTER TABLE  realiser 
-  ADD CONSTRAINT  realiser_ibfk_2  FOREIGN KEY ( VIS_MATRICULE ) REFERENCES  collaborateur  ( VIS_MATRICULE ),
-  ADD CONSTRAINT  realiser_ibfk_1  FOREIGN KEY ( AC_NUM ) REFERENCES  activite_compl  ( AC_NUM );
+ALTER TABLE `region`
+  ADD CONSTRAINT `region_ibfk_1` FOREIGN KEY (`SEC_CODE`) REFERENCES `secteur` (`SEC_CODE`);
 
 --
--- Contraintes pour la table  region 
+-- Contraintes pour la table `travailler`
 --
-ALTER TABLE  region 
-  ADD CONSTRAINT  region_ibfk_1  FOREIGN KEY ( SEC_CODE ) REFERENCES  secteur  ( SEC_CODE );
+ALTER TABLE `travailler`
+  ADD CONSTRAINT `travailler_ibfk_1` FOREIGN KEY (`REG_CODE`) REFERENCES `region` (`REG_CODE`),
+  ADD CONSTRAINT `travailler_ibfk_2` FOREIGN KEY (`VIS_MATRICULE`) REFERENCES `collaborateur` (`VIS_MATRICULE`);
 
---
--- Contraintes pour la table  travailler 
---
-ALTER TABLE  travailler 
-  ADD CONSTRAINT  travailler_ibfk_2  FOREIGN KEY ( VIS_MATRICULE ) REFERENCES  collaborateur  ( VIS_MATRICULE ),
-  ADD CONSTRAINT  travailler_ibfk_1  FOREIGN KEY ( REG_CODE ) REFERENCES  region  ( REG_CODE );
-
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,95 @@
+
+ 
+
+
+    <div id="droite">
+        <div id="bas">
+            <form name="formRAPPORT_VISITE" method="post" action="index.php?uc=MenuVisiteur&action=ajoutrapport">
+                <h1> Rapport de visite </h1>
+                  <label class="titre">Date de saisie:</label>
+                <input type="text" size="19" name="RAP_DATE" value = <?php echo  date("d/m/y");?> class="zone" />
+                
+				<label class="titre">Date de la visite :</label>
+                <input type="date" size="10" name="RAP_DATEVISITE" class="zone" />
+				
+                <label class="titre">Practicien :</label>
+               
+			   <select name="PRA_NUM" class="zone">
+				 <option>Choisissez un practicien</option>
+                   <?php 
+					foreach($lespracticiens as $unpracticien){
+					?> <option value=<?php echo $unpracticien['PRA_NUM'] ?>><?php echo $unpracticien['PRA_NOM']  ?></option><?php
+					}
+                   ?>
+				</select>
+                <label class="titre">Coefficient :</label>
+                <input type="text" size="6" name="PRA_COEFF" class="zone" />
+
+
+                <label class="titre">Remplacent :</label>
+                <input type="checkbox" class="zone"  onClick= "selectionne(true,this.checked,'PRA_REMPLACANT')"; />
+                <select name="PRA_REMPLACANT" class="zone" style="visibility:hidden" >
+                     <option>Choisissez un remplacant</option>
+                   <?php 
+                    foreach($lespracticiens as $unpracticien){
+                    ?> <option value=<?php echo $unpracticien['PRA_NUM'] ?>><?php echo $unpracticien['PRA_NOM']  ?></option><?php
+                    }
+                   ?>
+                </select>
+             
+                <label class="titre">Motif de la visite :</label>
+                <select name="RAP_MOTIF" class="zone" onClick="selectionne('5',this.value,'RAP_MOTIFAUTRE');">
+                  <?php foreach($lesmotifs as $unmotif){
+                    ?> <option value=<?php echo $unmotif['id'] ?>><?php echo $unmotif['Libelle']  ?></option><?php
+                    }
+                   ?>
+                </select>
+                <input type="text" name="RAP_MOTIFAUTRE" class="zone" style="visibility:hidden" />
+                <label class="titre">Bilan :</label>
+                <textarea rows="5" cols="50" name="RAP_BILAN" class="zone"></textarea>
+                <label class="titre">
+                    <h3> Eléments présentés </h3>
+                </label>
+                <label class="titre">Produit 1 : </label>
+                <select name="PROD1" class="zone">
+                    <option>Choisissez un produit</option>
+  <?php foreach(    $lesmedicaments as  $unmedicament){
+                    ?> <option value=<?php echo $unmedicament['MED_DEPOTLEGAL'] ?>><?php echo $unmedicament['MED_NOMCOMMERCIAL']  ?></option><?php
+                    }
+                   ?>
+
+                </select>
+                <label class="titre">Produit 2 : </label>
+                <select name="PROD2" class="zone">
+                      <option>Choisissez un produit</option>
+                      <?php foreach(    $lesmedicaments as  $unmedicament){
+                    ?> <option value=<?php echo $unmedicament['MED_DEPOTLEGAL'] ?>><?php echo $unmedicament['MED_NOMCOMMERCIAL']  ?></option><?php
+                    }
+                   ?>
+                </select>
+                <label class="titre">Documentation offerte :</label>
+                <input name="RAP_DOC" type="checkbox" class="zone" checked="false" />
+                <label class="titre">
+                    <h3>Echanitllons</h3>
+                </label>
+                <div class="titre" id="lignes">
+                    <label class="titre">Produit : </label>
+                    <select name="PRA_ECH1" class="zone">
+                     <option>Choisissez un echantillon</option>
+                      <?php foreach(    $lesmedicaments as  $unmedicament){
+                    ?> <option value=<?php echo $unmedicament['MED_DEPOTLEGAL'] ?>><?php echo $unmedicament['MED_NOMCOMMERCIAL']  ?></option><?php
+                    }
+                   ?>
+                    </select>
+                    <input type="text" name="PRA_QTE1" size="2" class="zone" />
+                    <input type="button" id="but1" value="+" onclick="ajoutLigne(1);" class="zone" />
+                </div>
+                <label class="titre">SAISIE DEFINITIVE :</label>
+                <input name="RAP_LOCK" type="checkbox" class="zone"  />
+                <label class="titre"></label>
+                <div class="zone">
+                    <input type="reset" value="annuler"></input>
+                    <input type="submit"></input>
+            </form>
+            </div>
+        </div>
