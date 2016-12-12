@@ -20,10 +20,10 @@ include("vues/v_rapportNouveau.php");
 
 
 }
-case'toutrapport':{
-	// au lieu de hetPraticiens, faire un getVisiteur de la region $_session['idregion']
-	$lespracticiens = $pdo->getPraticiens();
-
+case 'toutrapport':{
+	// au lieu de getPraticiens, faire un getVisiteur de la region $_session['idregion']
+	$lesvisiteurs = $pdo->getListeVisiteursMemeRegion($_SESSION['idregion']);
+	$visiteur = true;
 	include("vues/v_consulter.php");	
 
 }

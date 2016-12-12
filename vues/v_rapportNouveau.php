@@ -7,7 +7,7 @@
 	<th>Numéro nom praticien</th>
 	<th>Motif</th>
 	<th>Date</th>
-	<th>Code nom médicaments</th>
+	<th>Code nom médicament</th>
 	</tr>
 	
 
@@ -31,7 +31,7 @@ foreach($lesmedicaments as $unmedicament){
 } ?>
 
 <?php }else{?>
-	Pas de médicaments présenté
+	Pas de médicament présenté
 	<?php
 }
 ?></td>

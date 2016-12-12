@@ -6,7 +6,7 @@
 		 <h1>Les médicaments </h1>
              <form name="formListeRecherche" method="post">
                 <select name="lstMed" id="MedicamentL" class="titre" onChange=" document.location.href='index.php?uc=MenuVisiteur&action=medicament&num='+this.value+''; ">
-                    <option>Choisissez un médicaments</option>
+                    <option>Choisissez un médicament</option>
                    <?php 
                  
                   

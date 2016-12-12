@@ -23,10 +23,10 @@ if(isset($modifier)){
 				<label class="titre">Date de la visite :</label>
                 <input type="date" size="10"<?php if(isset($datevisite)) { echo  'value ='.$datevisite;} ?> <?php if(isset($consulter)) { echo "disabled";}?> name="RAP_DATEVISITE" class="zone" />
 				
-                <label class="titre">Practicien :</label>
+                <label class="titre">Praticien :</label>
                
 			   <select name="PRA_NUM" class="zone" id="PRA_NUM" onautocomplete="<?php $idpraticien ?> = getSelectValue(selectId)"  >
-				 <option  selected value="-1">Choisissez un practicien</option>
+				 <option  selected value="-1">Choisissez un praticien</option>
                    <?php 
 					foreach($lespracticiens as $unpracticien){
 					?> <option value=<?php echo $unpracticien['PRA_NUM'] ?> <?php if(isset($consulter)) { echo "disabled";}?> <?php if(isset($numpra) and $unpracticien['PRA_NUM']== $numpra) { echo "selected";}?>><?php echo $unpracticien['PRA_NOM']  ?> </option><?php
@@ -39,10 +39,10 @@ if(isset($modifier)){
                 <label class="titre">Coefficient :</label>
                 <input type="text" <?php if(isset($coeffpracticien) and !empty($coeffpracticien)) { echo "value =".$coeffpracticien; }?> <?php if(isset($consulter)) { echo "disabled";}?> size="6" name="PRA_COEFF" class="zone" />
 
-                <label class="titre">Remplacent :</label>
+                <label class="titre">Remplaçant :</label>
                 <input type="checkbox" name="checkremplacent" class="zone" value="true" <?php if(isset($consulter)) { echo "disabled";}?> <?php if(isset($checkboxRemplacant)) { echo $checkboxRemplacant;} ?> onClick= "selectionne(true,this.checked,'PRA_REMPLACANT')"; />
                 <select name="PRA_REMPLACANT" class="zone" style="visibility:<?PHP if(isset($afficheRemp)) { echo $afficheRemp;}?>" >
-                     <option  value="" >Choisissez un remplacant</option>
+                     <option  value="" >Choisissez un remplaçant</option>
                    <?php 
                     foreach($lespracticiens as $unpracticien){
                    ?> <option value=<?php echo $unpracticien['PRA_NUM']; ?> <?php if(isset($consulter)) { echo "disabled";}?> <?php if(isset($numremp) and $unpracticien['PRA_NUM']== $numremp) { echo "selected";}?>><?php echo $unpracticien['PRA_NOM']  ?></option><?php
@@ -91,12 +91,12 @@ if(isset($modifier)){
                 <label class="titre">Documentation offerte :</label>
                 <input name="RAP_DOC" type="checkbox" class="zone" <?php if(isset($checkboxRemplacant)) { echo $checkboxRemplacant;}?> <?php if(isset($consulter)) { echo "disabled";} ?> value="true"  />
                 <label class="titre">
-                    <h3>Echanitllons</h3>
+                    <h3>Echantillons</h3>
                 </label>
                 <div class="titre" id="lignes">
                     <label class="titre">Produit : </label>
                     <select name="PRA_ECH1" class="zone">
-                     <option  value="" >Choisissez un echantillon</option>
+                     <option  value="" >Choisissez un échantillon</option>
                       <?php foreach(    $lesmedicaments as  $unmedicament){
                     ?> <option value=<?php echo $unmedicament['MED_DEPOTLEGAL'] ?> <?PHP if(isset($consulter)) { echo "disabled";}?> ><?php echo $unmedicament['MED_NOMCOMMERCIAL']  ?></option><?php
                     }
@@ -115,11 +115,11 @@ if(isset($modifier)){
                  <input type="reset" value="annuler"></input>
                     <input type="submit" onclick="if(formRAPPORT_VISITE.elements['PRA_NUM'].value == '-1')
 {
-  if(!confirm('Vous navez pas renseigné de praticiens, voulez-vous continuer ?')) return false;
+  if(!confirm('Vous n\'avez pas renseigné de praticien, voulez-vous continuer ?')) return false;
   
 }
 if(formRAPPORT_VISITE.elements['PROD1'].value == '' | formRAPPORT_VISITE.elements['PROD2'].value == ''){
-   if(!confirm('Vous navez pas renseigné de médicaments présentés, voulez-vous continuer ?')) return false;
+   if(!confirm('Vous n\'avez pas renseigné de médicaments présentés, voulez-vous continuer ?')) return false;
 }" ></input>
 <?php
 }?>

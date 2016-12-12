@@ -382,6 +382,23 @@ public function getToutrapportsDate($region, $datetard, $datetot){
         return $rep;
 }
 
+public function getListeVisiteursMemeRegion($region) {
+	$req = connexionPDO::$monPdo->prepare("
+			SELECT VIS_MATRICULE, VIS_NOM, Vis_PRENOM
+			FROM collaborateur
+			WHERE VIS_MATRICULE IN (
+				SELECT VIS_MATRICULE FROM travailler 
+				WHERE JJMMAA IN ( 
+					SELECT MAX(JJMMAA) FROM travailler 
+					WHERE REG_CODE = :codeRegion
+					GROUP BY VIS_MATRICULE
+				)
+			)
+	") ;
+	$req->execute(array('codeRegion' => $region)) ;
+	$rep = $req->fetchAll() ;
+	return $rep ;
+}
 
 }
 ?>

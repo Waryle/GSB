@@ -43,7 +43,7 @@ include("vues/v_medicament.php");
 
 	 }else
 	{
-		$message = "Aucun médicaments enregistrés";
+		$message = "Aucun médicament enregistré";
 		include("vues/message.php");
 	}
 	
@@ -89,7 +89,7 @@ if(isset($_GET['num'])){
 
 	}else
 	{
-		$message = "Aucun practiens enregistrés";
+		$message = "Aucun praticien enregistré";
 		include("vues/message.php");
 	}
 		

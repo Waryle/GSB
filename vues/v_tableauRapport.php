@@ -2,7 +2,7 @@
 <?php
 if(empty($lesrapports)){?>
 <p>
-Il n'exsite aucun rapport pour les critères de recherche renseingés
+Il n'existe aucun rapport pour les critères de recherche renseignés
 </p>
 <?php
 				}else{
@@ -42,7 +42,7 @@ foreach($lesmedicaments as $unmedicament){
 } ?>
 
 <?php }else{?>
-	Pas de médicaments présenté
+	Pas de médicament présenté
 	<?php
 }
 ?></td></tr><?php

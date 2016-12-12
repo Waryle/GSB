@@ -24,7 +24,7 @@
 			</table>-->
 		<form id="formpratic">
 
-                <h1> Particiens </h1>
+                <h1> Praticiens </h1>
                 <label class="titre">Numéro :</label>
                 <input type="text" size="10" name="NUM" class="zone" value = <?php echo  $infosPraticien['PRA_NUM'] ?> disabled  />
                 <label class="titre">Nom :</label>

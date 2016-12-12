@@ -23,6 +23,20 @@
 				<li><a href="index.php?uc=MenuDelegue&action=toutrapport">Tous les rapports</a>
                 </li>
 				<?php } ?>
+				
+				
             </ul>
+            <?php
+            	if(isset($_SESSION['id'])) {
+            ?>
+            	<li> Compte </li>
+            	<ul>
+	            	<li>
+	            		<a href="index.php?uc=Connexion&action=deconnexion">Déconnexion </a>
+	            	</li>
+	            </ul>
+            <?php
+            	}
+            ?>
         </ul>
     </div>

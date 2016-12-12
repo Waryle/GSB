@@ -1,6 +1,6 @@
 <h2>Saisie des rapports de visites</h2>
 <form name="ListeRapport" method="POST" action="index.php?uc=MenuVisiteur&action=modifierrapport">
- <label >les rapports de visite en cours : </label>
+ <label >Rapports de visite en cours : </label>
 <select name="numRapport">
    <option>Choisissez un rapport de visite</option>
   <?php foreach($lesrapports as  $unrapport){
