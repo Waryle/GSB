@@ -1,42 +1,49 @@
 <?php
 session_start();
-require_once("Model/classConnexion.php");
-require_once("Model/fonction.php");
-include("vue/v_entete.php") ;
+require_once("modele/classConnexion.php");
+require_once("modele/fonction.php");
+
+include("vues/v_header.php");
 
 
-if(!isset($_REQUEST['uc'])){
+if(!isset($_REQUEST['uc']))
      $uc = 'seConnecter';
-}else{
+else
 	$uc = $_REQUEST['uc'];
-}
+
+
 
 $pdo = connexionPDO::getconnexionPDO();	 
+//	$pdo->md5Pass(); 
+
 switch($uc)
 {
 	case 'seConnecter':
-			{
-				include("vue/v_connexion.php");
-			break;
-			}
-			case 'Connexion':{
-				include("Controleur/c_connexion.php");
-				break;
-			}
-	
-	case 'MenuVisiteur':
 	{
-				include("Controleur/c_visiteur.php");
+		include("vues/v_connexion.php");
+	break;
+	}
+	case 'Connexion':{
+		
+		include("controleur/c_connexion.php");	
+	break;
+	}
+		case 'MenuVisiteur':
+	{
+	include("vues/v_entete.php") ;
+		include("vues/menuCR.php");
 
-break;
+		include("controleur/c_visiteur.php");
+		break;
 	}
 	case 'MenuDelegue':
 	{
-				
-break;
-}
-
-
+	include("vues/v_entete.php") ;
+		include("vues/menuCR.php");
+		include("controleur/c_delegue.php");
+		break;
 	}
-include("vue/v_pied.php");
+}
+include("vues/v_pied.php");
+
 ?>
